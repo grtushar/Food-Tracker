@@ -14,7 +14,14 @@ class Meal {
     var rating: Int
     
     init?(name: String, image: UIImage?, rating: Int) {
-        if name.isEmpty || rating < 0 {
+        
+        // Name must not be empty
+        guard !name.isEmpty else {
+            return nil
+        }
+        
+        // Rating must be between 0 to 5 inclusive
+        guard (rating >= 0) && (rating <= 5) else {
             return nil
         }
         
