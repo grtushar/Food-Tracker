@@ -13,6 +13,12 @@ class FoodTrackerTests: XCTestCase {
     
     // Mark: Meal class test
     
+    // Confirms meal class return object when called with appropriate init parameters
+    func testMealInitializationSucceds() {
+        let perfectMeal = Meal(name: "Salad", image: nil, rating: 5)
+        XCTAssertNotNil(perfectMeal)
+    }
+    
     // Confirms that meal class initialization returns nil if initialized with empty name or negative rating
     func testMealInitializationFails() {
         // Empty name string
