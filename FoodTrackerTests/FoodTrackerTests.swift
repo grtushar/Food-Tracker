@@ -30,5 +30,18 @@ class FoodTrackerTests: XCTestCase {
             // Put the code you want to measure the time of here.
         }
     }
+    
+    // Mark: Meal class test
+    
+    // Confirms that meal class initialization returns nil if initialized with empty name or negative rating
+    func testMealInitializationFails() {
+        // Empty name string
+        let emptyStringName = Meal(name: "", image: nil, rating: 3)
+        XCTAssertNil(emptyStringName)
+        
+        // Negatative rating
+        let negativeRatingMeal = Meal(name: "Rice", image: nil, rating: -2)
+        XCTAssertNil(negativeRatingMeal)
+    }
 
 }
