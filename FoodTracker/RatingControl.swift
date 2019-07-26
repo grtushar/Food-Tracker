@@ -9,14 +9,6 @@
 import UIKit
 
 @IBDesignable class RatingControl: UIStackView {
-
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
-    */
     
     // Mark: Properties
     private var ratingButtons = [UIButton]()
@@ -50,7 +42,7 @@ import UIKit
     
     // Mark: Private Methods
     private func setupButtons() {
-        //remove any existing buttons
+        // Remove any existing buttons
         for button in ratingButtons {
             removeArrangedSubview(button)
             button.removeFromSuperview()
@@ -64,30 +56,30 @@ import UIKit
         let highlightedStar = UIImage(named:"highlightedStar", in: bundle, compatibleWith: self.traitCollection)
         
         for index in 0..<starCount {
-            //create button
+            // Create button
             let button = UIButton()
-//            button.backgroundColor = UIColor.purple
+            
             // Set the button images
             button.setImage(emptyStar, for: .normal)
             button.setImage(filledStar, for: .selected)
             button.setImage(highlightedStar, for: .highlighted)
             button.setImage(highlightedStar, for: [.highlighted, .selected])
             
-            //add constraints
+            // add constraints
             button.translatesAutoresizingMaskIntoConstraints = false
             button.heightAnchor.constraint(equalToConstant: starSize.height).isActive = true
             button.widthAnchor.constraint(equalToConstant: starSize.width).isActive = true
             
-            //set the accessibility label
+            // Set the accessibility label
             button.accessibilityLabel = "Set \(index + 1) star rating"
             
-            //setup button action
+            // Setup button action
             button.addTarget(self, action: #selector(RatingControl.ratingButtonPressed(button:)), for: .touchUpInside)
             
-            //add button
+            // Add button
             addArrangedSubview(button)
             
-            //add button to array
+            // Add button to array
             ratingButtons.append(button)
         }
         
