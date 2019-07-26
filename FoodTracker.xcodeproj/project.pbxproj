@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C51C445C22EACCE900B14A8F /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51C445B22EACCE900B14A8F /* Meal.swift */; };
 		C53825AE22E6840800DF5368 /* RatingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C53825AD22E6840800DF5368 /* RatingControl.swift */; };
 		C5B235B622D26F58002E684E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B235B522D26F58002E684E /* AppDelegate.swift */; };
 		C5B235B822D26F58002E684E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B235B722D26F58002E684E /* ViewController.swift */; };
@@ -27,6 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C51C445B22EACCE900B14A8F /* Meal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
 		C53825AD22E6840800DF5368 /* RatingControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingControl.swift; sourceTree = "<group>"; };
 		C5B235B222D26F58002E684E /* FoodTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5B235B522D26F58002E684E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 				C5B235BE22D26F59002E684E /* LaunchScreen.storyboard */,
 				C5B235C122D26F59002E684E /* Info.plist */,
 				C53825AD22E6840800DF5368 /* RatingControl.swift */,
+				C51C445B22EACCE900B14A8F /* Meal.swift */,
 			);
 			path = FoodTracker;
 			sourceTree = "<group>";
@@ -200,6 +203,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C51C445C22EACCE900B14A8F /* Meal.swift in Sources */,
 				C5B235B822D26F58002E684E /* ViewController.swift in Sources */,
 				C53825AE22E6840800DF5368 /* RatingControl.swift in Sources */,
 				C5B235B622D26F58002E684E /* AppDelegate.swift in Sources */,
