@@ -91,6 +91,15 @@ class MealTableViewController: UITableViewController {
     }
     */
     
+    // Mark: Action
+    @IBAction func unwindToMealList(sender: UIStoryboardSegue) {
+        if let sourceViewController = sender.source as? MealViewController, let meal = sourceViewController.meal {
+            let newIndexPath = IndexPath(row: meals.count, section: 0)
+            meals.append(meal)
+            tableView.insertRows(at: [newIndexPath], with: .automatic)
+        }
+    }
+    
     // Mark: Private Methods
     
     private func loadSampleMealData() {
