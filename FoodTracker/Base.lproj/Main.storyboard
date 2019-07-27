@@ -58,7 +58,9 @@
                     <navigationItem key="navigationItem" title="Your Meals" id="7mS-kq-p6G">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="UQA-Ad-hbO">
                             <connections>
-                                <segue destination="BYZ-38-t0r" kind="show" id="CkH-Mx-cJH"/>
+                                <segue destination="Pl5-Td-t5i" kind="popoverPresentation" identifier="AddItem" popoverAnchorBarButtonItem="UQA-Ad-hbO" id="CkH-Mx-cJH">
+                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                </segue>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -67,7 +69,7 @@
             </objects>
             <point key="canvasLocation" x="319.19999999999999" y="124.8768472906404"/>
         </scene>
-        <!--Meal View Controller-->
+        <!--New Meal-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="MealViewController" customModule="FoodTracker" customModuleProvider="target" sceneMemberID="viewController">
@@ -117,6 +119,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" title="New Meal" id="Ad3-Jj-Pxf">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="dIa-Ux-fUh"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="6ON-di-ptF"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="imageView" destination="Fil-pg-XT4" id="wif-YR-24X"/>
                         <outlet property="mealNameLabel" destination="DKX-8d-kZh" id="IjJ-BA-PI8"/>
@@ -131,7 +137,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="996" y="124.8768472906404"/>
+            <point key="canvasLocation" x="1938.4000000000001" y="124.8768472906404"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="g04-rK-yiA">
@@ -150,6 +156,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="54a-7b-2sw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-623.20000000000005" y="124.8768472906404"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="U5V-E7-cff">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Pl5-Td-t5i" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="cQx-K3-ZwM">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="CrN-vZ-Vam"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="58m-ft-bSf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="996" y="124.8768472906404"/>
         </scene>
     </scenes>
     <resources>
