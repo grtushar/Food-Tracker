@@ -120,17 +120,28 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="New Meal" id="Ad3-Jj-Pxf">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="dIa-Ux-fUh"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="6ON-di-ptF"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="dIa-Ux-fUh">
+                            <connections>
+                                <action selector="cancel:" destination="BYZ-38-t0r" id="Cw2-cl-9kK"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="6ON-di-ptF">
+                            <connections>
+                                <action selector="saveButton:" destination="BL4-qB-VUx" id="I7h-uF-l1e"/>
+                                <segue destination="BL4-qB-VUx" kind="unwind" unwindAction="unwindToMealListWithSender:" id="psB-if-PWZ"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="imageView" destination="Fil-pg-XT4" id="wif-YR-24X"/>
                         <outlet property="mealNameLabel" destination="DKX-8d-kZh" id="IjJ-BA-PI8"/>
                         <outlet property="nameTextField" destination="cpI-n5-op2" id="A3e-ql-gh6"/>
                         <outlet property="ratingControl" destination="z8R-hN-Uf2" id="KPt-0A-CRv"/>
+                        <outlet property="saveButton" destination="6ON-di-ptF" id="QAb-14-psV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <exit id="BL4-qB-VUx" userLabel="Exit" sceneMemberID="exit"/>
                 <tapGestureRecognizer id="1oV-wC-qnq">
                     <connections>
                         <action selector="selectImageFromPhotoLIbrary:" destination="BYZ-38-t0r" id="BQw-o5-vuy"/>
