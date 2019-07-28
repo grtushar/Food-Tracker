@@ -13,6 +13,8 @@ class MealTableViewController: UITableViewController {
     
     // Mark: Properties
     var meals = [Meal]()
+    
+    let defaults = UserDefaults.standard
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,8 +22,12 @@ class MealTableViewController: UITableViewController {
         // Use the edit button item provided by the table view controller.
         navigationItem.leftBarButtonItem = editButtonItem
         
-        // Load the sample data.
-        loadSampleMealData()
+        // Load the saved or sample data.
+        if let savedData = loadMeals() {
+            meals += savedData
+        } else {
+            //loadSampleMealData()
+        }
     }
 
     // MARK: - Table view data source
@@ -64,6 +70,7 @@ class MealTableViewController: UITableViewController {
         if editingStyle == .delete {
             // Delete the row from the data source
             meals.remove(at: indexPath.row)
+            saveMeals()
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
@@ -124,7 +131,8 @@ class MealTableViewController: UITableViewController {
                 meals.append(meal)
                 tableView.insertRows(at: [newIndexPath], with: .automatic)
             }
-            
+            // Save the meals
+            saveMeals()
         }
     }
     
@@ -154,4 +162,32 @@ class MealTableViewController: UITableViewController {
         meals += [rice, pasta, pizza]
     }
 
+    private func saveMeals() {
+        do {
+            let data = try NSKeyedArchiver.archivedData(withRootObject: meals, requiringSecureCoding: false)
+            defaults.set(data, forKey: "meals")
+//            try data.write(to: Meal.ArchiveURL)
+        } catch {
+            
+        }
+    }
+    
+    private func loadMeals() -> [Meal]? {
+        if let placesData = defaults.object(forKey: "meals") as? NSData {
+            let meals = NSKeyedUnarchiver.unarchiveObject(with: placesData as Data) as! [Meal]
+            return meals
+        } else {
+            return nil
+        }
+//        do {
+//            guard let codedData = try? Data(contentsOf: Meal.ArchiveURL) else { fatalError() }
+//
+//            guard let meals = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(codedData) as? [Meal] else {
+//                fatalError("loadWidgetDataArray - Can't get Array")
+//            }
+//            return meals
+//        } catch {
+//            fatalError("loadWidgetDataArray - Can't encode data: \(error)")
+//        }
+    }
 }
