@@ -166,9 +166,8 @@ class MealTableViewController: UITableViewController {
         do {
             let data = try NSKeyedArchiver.archivedData(withRootObject: meals, requiringSecureCoding: false)
             defaults.set(data, forKey: "meals")
-//            try data.write(to: Meal.ArchiveURL)
         } catch {
-            
+
         }
     }
     
@@ -179,15 +178,5 @@ class MealTableViewController: UITableViewController {
         } else {
             return nil
         }
-//        do {
-//            guard let codedData = try? Data(contentsOf: Meal.ArchiveURL) else { fatalError() }
-//
-//            guard let meals = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(codedData) as? [Meal] else {
-//                fatalError("loadWidgetDataArray - Can't get Array")
-//            }
-//            return meals
-//        } catch {
-//            fatalError("loadWidgetDataArray - Can't encode data: \(error)")
-//        }
     }
 }
